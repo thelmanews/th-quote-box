@@ -1,0 +1,82 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../th-animated/th-animated.html">
+
+<polymer-element name="th-quote-box" attributes="width title details image" noscript>
+  <template>
+      <core-style ref="theme"></core-style>
+      <style>
+          .quotebox {   
+            margin: 0 auto;
+            position: relative;
+            width: {{width + "px"}};      
+          } 
+
+          .content {
+            padding: 10px;
+            max-width: {{width + "px"}};  
+            box-sizing: border-box;
+          }
+
+          .personinfo {
+            text-align: center;
+            margin: 0px auto;
+            margin-top: 15px;
+          }
+
+          .img-container {
+            height: 0px;
+            width: {{width + "px"}};
+            position: relative;
+            margin-top: 55px;
+          }
+
+          .border-bottom {
+            height: 0px;
+            width: {{width + "px"}};
+            position: relative;
+            margin-top: 10px;
+          }
+
+          .img {
+            height: 90px;
+            width: 90px;
+            position: relative;
+            margin-top: -45px;
+            display: inline-block;
+            border-radius: 50px;
+            background-size: cover;
+            padding: 10px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+          }
+          
+      </style>
+      <div class="quote">
+          <div class="quotebox subpoint">
+            <div class="content"><content></content></div>
+            <div class="personinfo">
+                <div>
+                    <template if="{{title}}">
+                      <div class="name subpoint">{{title}}</div>
+                    </template>
+                    <template if="{{details}}">
+                      <div class="label">{{details}}</div>
+                    </template>
+                </div>
+                
+                <template if="{{image}}">
+                  <div class="img-container">
+                    <div class="img img-shadow" style="background-image: url('{{image}}'); left: {{imageMargin}}"></div>
+                  </div>
+                </template>
+                
+                <template if="{{!image}}">
+                  <div class="border-bottom"></div>
+                </template>
+            </div>
+          </div>
+      </div>
+    
+  </template>
+</polymer-element>
