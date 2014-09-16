@@ -1,7 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../th-animated/th-animated.html">
 
-<polymer-element name="th-quote-box" attributes="width title details image" noscript>
+<polymer-element name="th-quote-box" attributes="width title details image textColor" noscript>
   <template>
       <core-style ref="theme"></core-style>
       <style>
@@ -52,8 +52,8 @@
           }
           
       </style>
-      <div class="quote">
-          <div class="quotebox subpoint">
+      <div class="quote" style="color: {{textColor}}">
+          <div class="quotebox subpoint" style="border: 3px solid {{textColor}}; border-bottom: none;">
             <div class="content"><content></content></div>
             <div class="personinfo">
                 <div>
@@ -66,13 +66,13 @@
                 </div>
                 
                 <template if="{{image}}">
-                  <div class="img-container">
+                  <div class="img-container" style="border-top: 3px solid {{textColor}};">
                     <div class="img img-shadow" style="background-image: url('{{image}}'); left: {{imageMargin}}"></div>
                   </div>
                 </template>
                 
                 <template if="{{!image}}">
-                  <div class="border-bottom"></div>
+                  <div class="border-bottom" style="border-top: 3px solid {{textColor}};"></div>
                 </template>
             </div>
           </div>
