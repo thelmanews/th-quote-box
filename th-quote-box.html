@@ -1,7 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../th-theme/th-theme.html">
 
-<polymer-element name="th-quote-box" attributes="width  details image textColor">
+<polymer-element name="th-quote-box" attributes="width qtitle details image textColor">
   <template>
       <core-style ref="theme"></core-style>
       <style>
@@ -57,8 +57,8 @@
             <div class="content"><content></content></div>
             <div class="personinfo">
                 <div>
-                    <template if="{{title}}">
-                      <div class="name subpoint">{{title}}</div>
+                    <template if="{{qtitle}}">
+                      <div class="name subpoint">{{qtitle}}</div>
                     </template>
                     <template if="{{details}}">
                       <div class="label">{{details}}</div>
@@ -79,12 +79,4 @@
       </div>
     
   </template>
-  <script>
-
-      Polymer('th-quote-box', {
-        title: '',
-      });
-
-  </script>
-
 </polymer-element>
