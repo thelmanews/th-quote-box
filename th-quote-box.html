@@ -1,19 +1,21 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../th-theme/th-theme.html">
+<link rel="import" href="../th-animated/th-animated.html">
 
-<polymer-element name="th-quote-box" attributes="width qtitle details image textColor">
+<polymer-element name="th-quote-box" extends="th-animated" attributes="width qtitle details image textColor">
   <template>
       <core-style ref="theme"></core-style>
       <style>
+          :host{
+            width: 100%;
+          }
           .quotebox {   
             margin: 0 auto;
             position: relative;
-            width: {{width + "px"}};      
           } 
 
           .content {
             padding: 10px;
-            max-width: {{width + "px"}};  
             box-sizing: border-box;
           }
 
@@ -25,14 +27,12 @@
 
           .img-container {
             height: 0px;
-            width: {{width + "px"}};
             position: relative;
             margin-top: 55px;
           }
 
           .border-bottom {
             height: 0px;
-            width: {{width + "px"}};
             position: relative;
             margin-top: 10px;
           }
@@ -53,8 +53,8 @@
           
       </style>
       <div class="quote" style="color: {{textColor}}">
-          <div class="quotebox subpoint" style="border: 3px solid {{textColor}}; border-bottom: none;">
-            <div class="content"><content></content></div>
+          <div class="quotebox subpoint" style="border: 3px solid {{textColor}}; border-bottom: none;  width:{{width | widthFilter}};">
+            <div class="content" ><content></content></div>
             <div class="personinfo">
                 <div>
                     <template if="{{qtitle}}">
@@ -66,13 +66,13 @@
                 </div>
                 
                 <template if="{{image}}">
-                  <div class="img-container" style="border-top: 3px solid {{textColor}};">
+                  <div class="img-container" style="border-top: 3px solid {{textColor}}; ">
                     <div class="img img-shadow" style="background-image: url('{{image}}'); left: {{imageMargin}}"></div>
                   </div>
                 </template>
                 
                 <template if="{{!image}}">
-                  <div class="border-bottom" style="border-top: 3px solid {{textColor}};"></div>
+                  <div class="border-bottom" style="border-top: 3px solid {{textColor}}; width:{{width | widthFilter}};"></div>
                 </template>
             </div>
           </div>
