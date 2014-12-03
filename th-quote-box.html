@@ -1,7 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../th-animated/th-animated.html">
 
-<polymer-element name="th-quote-box" extends="th-animated" attributes="width qtitle details image textColor">
+<polymer-element name="th-quote-box" extends="th-animated" attributes="width qtitle details image textColor imgOffsetLeft">
   <template>
       <core-style ref="theme"></core-style>
       <style>
@@ -66,7 +66,7 @@
                 
                 <template if="{{image}}">
                   <div class="img-container" style="border-top: 3px solid {{textColor}}; ">
-                    <div class="img img-shadow" style="background-image: url('{{image}}'); left: {{imageMargin}}"></div>
+                    <div class="img img-shadow" style="background: url('{{image}}') no-repeat center center; background-size: cover;"></div>
                   </div>
                 </template>
                 
