@@ -1,8 +1,9 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../th-animated/th-animated.html">
+<link rel="import" href="../th-text/th-animated.html">
 
 
-<polymer-element name="th-quote-box" extends="th-animated" attributes="qtitle details image textColor">
+<polymer-element name="th-quote-box" extends="th-animated" attributes="qtitle details image textColor markdown">
   <template>
       <core-style ref="theme"></core-style>
       <style>
@@ -56,7 +57,7 @@
       </style>
       <div class="quote" style="color: {{textColor}}">
           <div class="quotebox subpoint" style="border: 3px solid {{textColor}}; border-bottom: none;  width:100%;">
-            <div class="content" ><content></content></div>
+            <div class="content"><th-text type="mainpoint" markdown="{{markdown}}"> {{textContent}} </th-text></div>
             <div class="personinfo">
                 <div>
                     <template if="{{qtitle}}">
@@ -83,7 +84,8 @@
   </template>
   <script>
       Polymer('th-quote-box', {
-        qtitle:''
+        qtitle:'',
+        markdown: true
       });
   </script>
 
